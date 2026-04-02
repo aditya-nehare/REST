@@ -1,0 +1,29 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container">
+  <div class="post-box">
+    <form
+      action="/posts/<%= post.id %>?_method=PATCH"
+      method="POST"
+      class="post-content"
+    >
+      <div class="post-header">
+        <span class="post-id"><%= post.username %></span>
+      </div>
+
+      <label for="content">Edit Content</label>
+
+      <textarea
+        name="content"
+        id="content"
+        rows="5"
+        required
+      ><%= post.content %></textarea>
+
+      <div class="post-actions">
+        <button type="submit" class="btn update-btn">Update</button>
+        <a href="/posts" class="btn cancel-btn">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

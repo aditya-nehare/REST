@@ -1,0 +1,22 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container">
+  <a href="http://localhost:3000/posts/new">Create New Post</a>
+  <% for(post of posts) { %>
+  <div class="post-box">
+    <div class="post-user">
+      @<%= post.username %>
+      <br /><span class="post-id">id: <%= post.id %></span>
+    </div>
+
+    <div class="post-content"><%= post.content %></div>
+
+    <div class="post-actions">
+      <a href="/posts/<%= post.id %>/edit" class="btn update-btn">Update</a>
+      <form method="POST" action="/posts/<%= post.id %>?_method=DELETE">
+        <button class="btn delete-btn">Delete</button>
+      </form>
+    </div>
+  </div>
+  <% } %>
+</div>
